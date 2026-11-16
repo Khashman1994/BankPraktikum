@@ -1,6 +1,6 @@
 
 // Repräsentiert eine Überweisung von einem Sender an einen Empfänger
-package Bank;
+package bank;
 
 import java.util.Objects;
 

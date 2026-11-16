@@ -1,5 +1,5 @@
 // Repräsentiert Ein- und Auszahlungen inklusive Zinsangaben
-package Bank;
+package bank;
 public class Payment extends Transaction  {
    
 
@@ -63,7 +63,7 @@ public class Payment extends Transaction  {
      * Konstruktor zur Initialisierung der Basisattribute einer Zahlung.
      *
      * @param date        das Datum der Zahlung
-     * @param amount      der Betrag (positiv für Einzahlung, negativ für Auszahlung)
+     * @param amount      der Betrag positiv für Einzahlung, negativ für Auszahlung
      * @param description die Beschreibung der Zahlung
      */
     public Payment(String date,  double amount,String description) {

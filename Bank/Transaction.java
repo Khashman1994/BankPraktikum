@@ -1,26 +1,22 @@
 // Basisklasse für alle Transaktionen (Ein-/Auszahlungen und Überweisungen)
-package Bank;
+package bank;
 
 import java.util.Objects;
 
 public abstract class  Transaction implements CalculateBill {
     // Datum im Format DD.MM.YYYY
-    private String date,description;
-
+    protected String date,description;
     
-
     // Geldbetrag
-    private double amount;
+    protected double amount;
 
     /**
-     * 2. Wie ist ein Copy-Konstruktor aufgebaut?
-     * Ein Copy-Konstruktor zeichnet sich durch zwei Merkmale aus:
-     *
-     * Er hat denselben Namen wie die Klasse.
-     *
-     * Er nimmt ein Objekt derselben Klasse als Parameter entgegen.
-     * Quelle; Gemini, https://www.gemini.de/lexikon/copy-konstruktor#:~:text=Ein%20Copy%2DKonstruktor%20zeichnet%20sich,als%20Parameter%20entgegen.
-     */
+        * Konstruktor zur Initialisierung aller Basisattribute einer Transaktion.
+        *
+        * @param date        das Datum der Transaktion 
+        * @param amount      der Geldbetrag der Transaktion
+        * @param description die Beschreibung oder der Verwendungszweck
+        */
 
     
     /**
@@ -123,7 +119,7 @@ public abstract class  Transaction implements CalculateBill {
      *
      * @return eine Zeichenkette mit den Basisdaten der Transaktion
      */
-
+@Override 
     public String toString() {
         return "Date: " + date + 
                ", Amount: " + calculate() + 
