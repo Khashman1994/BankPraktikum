@@ -11,23 +11,23 @@ public class PrivateBankAlt implements Bank {
        /**
      * Name der privaten Bank.
      */
-  protected  String name;
+  private  String name;
   /**
      * Zinssatz bei Einzahlungen (Wert zwischen 0.0 und 1.0).
      * Wird bei Payments in addTransaction übernommen.
      */
-  protected  double incomingInterest;
+  private  double incomingInterest;
 
     /**
      * Zinssatz bei Auszahlungen (Wert zwischen 0.0 und 1.0).
      * Wird bei Payments in addTransaction übernommen.
      */
-  protected  double outgoingInterest;
+  private  double outgoingInterest;
    /**
      * Verknüpft jeden Kontonamen mit seiner Liste von Transaktionen.
      * Schlüssel: Name des Kontos, Wert: Liste der zugehörigen Transaktionen.
      */
-  protected   Map<String, List<Transaction>> accountsToTransactions =new java.util.HashMap<>();
+  protected   Map<String, List<Transaction>> accountsToTransactions =new java.util.HashMap();
 
 
   /**
@@ -92,7 +92,8 @@ public class PrivateBankAlt implements Bank {
     } else {
         throw new IllegalArgumentException("Outgoing interest must be between 0 and 1.");
     }
-}
+    }
+
 
  /**
      * Konstruktor zur Initialisierung von Name und Zinssätzen der Bank.
@@ -116,7 +117,7 @@ public class PrivateBankAlt implements Bank {
      * @param other die zu kopierende PrivateBank
      */
   public PrivateBankAlt(PrivateBank other) {
-    this(other.name, other.incomingInterest, other.outgoingInterest);
+    this(other.getName(), other.getIncomingInterest(), other.getOutgoingInterest());
 }
 
 // toString method
@@ -135,9 +136,9 @@ public class PrivateBankAlt implements Bank {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
     PrivateBank that = (PrivateBank) o;
-    return Double.compare(that.incomingInterest, incomingInterest) == 0 &&
-            Double.compare(that.outgoingInterest, outgoingInterest) == 0 &&
-            name.equals(that.name) &&
+    return Double.compare(that.getIncomingInterest(), incomingInterest) == 0 &&
+            Double.compare(that.getOutgoingInterest(), outgoingInterest) == 0 &&
+            name.equals(that.getName()) &&
             accountsToTransactions.equals(that.accountsToTransactions);
   }
 

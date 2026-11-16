@@ -11,23 +11,23 @@ public class PrivateBank implements Bank {
        /**
      * Name der privaten Bank.
      */
-  protected  String name;
+  private  String name;
   /**
      * Zinssatz bei Einzahlungen (Wert zwischen 0.0 und 1.0).
      * Wird bei Payments in addTransaction übernommen.
      */
-  protected  double incomingInterest;
+  private  double incomingInterest;
 
     /**
      * Zinssatz bei Auszahlungen (Wert zwischen 0.0 und 1.0).
      * Wird bei Payments in addTransaction übernommen.
      */
-  protected  double outgoingInterest;
+  private  double outgoingInterest;
    /**
      * Verknüpft jeden Kontonamen mit seiner Liste von Transaktionen.
      * Schlüssel: Name des Kontos, Wert: Liste der zugehörigen Transaktionen.
      */
-  protected   Map<String, List<Transaction>> accountsToTransactions =new java.util.HashMap<>();
+  protected   Map<String, List<Transaction>> accountsToTransactions =new java.util.HashMap();
 
 
   /**
@@ -79,13 +79,7 @@ public class PrivateBank implements Bank {
     return outgoingInterest;
   }
 
-
-    /**
-     * Setzt den Zinssatz für Auszahlungen mit Validierung.
-     *
-     * @param outgoingInterest der Zinssatz als Dezimalzahl (0.0 bis 1.0)
-     * @throws IllegalArgumentException wenn der Wert außerhalb von 0 bis 1 liegt
-     */
+  
   public void setOutgoingInterest(double outgoingInterest) {
     if (outgoingInterest >= 0 && outgoingInterest <= 1) {
         this.outgoingInterest = outgoingInterest;
@@ -108,6 +102,7 @@ public class PrivateBank implements Bank {
     setIncomingInterest(incomingInterest);
     setOutgoingInterest(outgoingInterest);
   }
+  
 
    /**
      * Copy-Konstruktor: Erzeugt eine neue Bank mit den gleichen Werten
